@@ -11,7 +11,7 @@ import java.util.Map;
 import java.util.Objects;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping()
 public class StudentController {
 
     @Autowired
