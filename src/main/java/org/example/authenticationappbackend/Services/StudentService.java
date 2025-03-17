@@ -27,7 +27,26 @@ public class StudentService {
         return null;
     }
 
+    public Student getStudent(int studentId){
+        Student student = studentRepo.findById(studentId).orElse(null);
+        return student;
+    }
+
     public List<Student> getAllStudents(){
         return studentRepo.findAll();
+    }
+
+    public List<Integer> getAllStudentsId(){
+        return studentRepo.getAllStudentsId();
+    }
+
+    public void deleteStudent(Map<String, Object> body){
+        int id = (int)body.get("id");
+        Student student = studentRepo.findById(id).orElse(null);
+        studentRepo.delete(student);
+    }
+
+    public void deleteAllStudent(){
+        studentRepo.deleteAll();
     }
 }

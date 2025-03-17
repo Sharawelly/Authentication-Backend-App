@@ -1,19 +1,20 @@
 package org.example.authenticationappbackend.Entity;
 
 import jakarta.persistence.*;
+import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
+@Transactional
 @Data
 @Table(name = "Student_DB")
 @NoArgsConstructor
 @AllArgsConstructor
 public class Student {
     @Id
-    @Column()
-    @GeneratedValue
+    @Column(name = "id", nullable = false, unique = true)
     private int id;
 
     @Column
@@ -29,6 +30,13 @@ public class Student {
     private int level;
     @Column
     private String password;
+    // imagedata_id
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "image_data_id")
+    private ImageData imageData;
+
+
+
 
     public int getId() {
         return id;
@@ -76,5 +84,13 @@ public class Student {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public ImageData getImageData() {
+        return imageData;
+    }
+
+    public void setImageData(ImageData imageData) {
+        this.imageData = imageData;
     }
 }
