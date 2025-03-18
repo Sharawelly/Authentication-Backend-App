@@ -17,6 +17,11 @@ public class StudentService {
         return studentRepo.save(student);
     }
 
+       public boolean checkID(int id){
+         return studentRepo.idExists(id)>=1;
+
+    }
+
     public Student isLogedIn(Map<String, Object> body){
         int id = (int)body.get("id");
         String password = (String)body.get("password");
