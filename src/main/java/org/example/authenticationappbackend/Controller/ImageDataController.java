@@ -33,7 +33,7 @@ public class ImageDataController {
     @GetMapping("/getImage")
     public ResponseEntity<?> downloadImage(@PathVariable int studentId){
         Student student = studentService.getStudent(studentId);
-        ImageData imageData = imageDataService.getImageData(student);
+        ImageData imageData = imageDataService.getImageData(student); // consists of 3 things
         byte[] imageFile = imageDataService.downloadImage(student);
         return ResponseEntity.status(HttpStatus.OK).contentType(MediaType.valueOf(imageData.getImageType())).body(imageFile);
 

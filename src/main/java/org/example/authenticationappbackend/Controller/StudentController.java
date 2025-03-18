@@ -49,4 +49,17 @@ public class StudentController {
 
 
 
+    @PostMapping("/editStudent")
+    public void editStudent(@RequestBody Map<String, Object> body){
+        studentService.editStudent(body);
+    }
+
+
+
+    @PostMapping("/changePassword")
+    public void changePassword(@RequestBody Map<String, Object> body){
+        studentService.changePassword(body);
+    }
+
+
 }

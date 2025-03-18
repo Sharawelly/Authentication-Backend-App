@@ -60,7 +60,7 @@ public class ImageDataService {
         if (student != null) {
             ImageData dbImageData = imageDataRepo.findById(student.getImageData().getId()).orElse(null);
             if (dbImageData != null) {
-                return dbImageData.getImageData();
+                return dbImageData.getImageData(); // only the data
             }
         }
         return null;
