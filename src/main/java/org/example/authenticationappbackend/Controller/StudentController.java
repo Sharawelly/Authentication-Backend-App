@@ -17,6 +17,12 @@ public class StudentController {
     @Autowired
     private StudentService studentService;
 
+    @PostMapping("/IDexists")
+    public boolean checkID(@RequestBody Map<String, Object> body) {
+        int id = (int) body.get("id");
+        return studentService.checkID(id);
+    }
+
     @PostMapping("/addStudent")
     public Student addStudent(@RequestBody Student student){
         return studentService.saveDetails(student);
