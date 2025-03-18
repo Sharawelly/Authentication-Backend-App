@@ -48,6 +48,10 @@ public interface StudentRepo extends JpaRepository<Student, Integer> {
                       @Param("name") String name);
 
 
+    @Query("SELECT COUNT(s) FROM Student s WHERE s.id = :id")
+    int idExists(@Param("id") int id);
+
+
 
 
 }
