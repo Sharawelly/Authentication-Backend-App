@@ -53,7 +53,11 @@ public class StudentController {
     }
 
 
+    @GetMapping("")
+   public void tryConnection(){
 
+    }
+    
 
     @PostMapping("/editStudent")
     public void editStudent(@RequestBody Map<String, Object> body){
